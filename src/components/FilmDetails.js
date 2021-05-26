@@ -26,12 +26,11 @@ export default function FilmDetails() {
                 <p>
                     {filmDetails.opening_crawl}
                 </p>
-                {/* {characters.length !== 0 ? <h5 onClick={() => handleShowCharacters()}>Show Characters</h5> : 'loading!'} */}
-            <ul>
-                {characters.length !== 0 ? characters.map(character => {
-                    return <li>{character.name}</li>
-                }) : 'loading!'}
-            </ul>
+                <ul>
+                    {characters.length !== 0 ? characters.map(character => {
+                        return <li>{character.name}</li>
+                    }) : 'loading!'}
+                </ul>
             </div>
         </article>
     )

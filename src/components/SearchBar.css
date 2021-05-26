@@ -1,0 +1,27 @@
+.search-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 37.5%;
+    margin: 0 10%;
+}
+
+.search-bar input {
+    border: 2px solid rgb(208, 208, 208);
+    border-radius: 5px;
+}
+
+.drop-down {
+    margin: 0;
+    background-color: rgb(208, 208, 208);
+    list-style-type: none;
+    padding: 0;
+}
+
+.drop-down li:nth-child(odd) {
+    background-color: rgb(245, 245, 245);
+}
+
+li:hover {
+    color:blue;
+}

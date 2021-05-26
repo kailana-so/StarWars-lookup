@@ -7,7 +7,7 @@ import FilmCardFavs from './FilmCardFavs'
 export default function FilmsHomePage() {
 
     const { films, favourites } = useContext(PageContext)
-
+    
     return (
         <section className="films-homepage">
             {favourites ? 

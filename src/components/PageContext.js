@@ -9,7 +9,26 @@ export function PageProvider(props) {
     const [ filmDetails, setFilmDetails ] = useState([])
     const [ characters, setCharacters ] = useState([])
     const [ favourites, setFavourites ] = useState([])
-    const [ clicked, setClicked ] = useState(false)
+    const [ searchTerm, setSearchTerm ] = useState("")
+    const [ searchResults, setSearchResults ] = useState([])
+    
+    // handling search terms and dropdown menu
+    const predictedArray = []
+    const handleChange = event => {
+        setSearchTerm(event.target.value);
+    }
+    useEffect(() => {
+        films.forEach(film => {
+            predictedArray.push(film.title)
+        })
+
+        const results = searchTerm === '' ? [] : predictedArray.filter(arr =>
+          arr.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        setSearchResults(results)
+    }, [searchTerm])
+
+    // roman numeral lookup for episode number 
     const toRoman = {
         '1': 'I',
         '2': 'II',
@@ -19,12 +38,14 @@ export function PageProvider(props) {
         '6': 'VI'
     }
 
+    // initial pull of movies from API
     useEffect(() => {
         axios
         .get('http://swapi.dev/api/films/')
         .then(({ data }) => setFilms(data.results))
     },[])
 
+    // initial pull of favourites from local storage
     useEffect(() => {
         let storedFavs = localStorage.getItem('favourites')
         const idx = storedFavs !== null ? storedFavs.match(/\d+/g) : []
@@ -41,6 +62,7 @@ export function PageProvider(props) {
         }
     },[films])
 
+    // handling open to film details
     const handleOpenFilmDetails = (props) => {
         setFilmDetails(props.data)
         setCharacters([])   
@@ -56,6 +78,8 @@ export function PageProvider(props) {
             ))
         }))
     }
+
+    // handling favourites
     const handleAddFavourite = (props) => {
 
         if(localStorage.getItem('favourites')){ // check if there are favourite items
@@ -78,9 +102,8 @@ export function PageProvider(props) {
             localStorage.setItem("favourites", JSON.stringify(favArray))
             // console.log('new fav added')
         }
-        setClicked(true)
+        // setClicked(true)
     }
-
     const handleRemoveFavourite = (props) => {
         var storage = JSON.parse(localStorage['favourites'])
 
@@ -92,11 +115,11 @@ export function PageProvider(props) {
                 let updatedFavs = favourites.filter(film => film.title !== props.data.title)
                 setFavourites(updatedFavs)
             }
-            setClicked(false)
+            // setClicked(false)
     }
 
     return (
-        <PageContext.Provider value={ { films, toRoman, favourites, filmDetails, characters, clicked, handleOpenFilmDetails, handleAddFavourite, handleRemoveFavourite } }>
+        <PageContext.Provider value={ { films, toRoman, favourites, filmDetails, characters, searchTerm, searchResults,  handleOpenFilmDetails, handleAddFavourite, handleRemoveFavourite, handleChange} }>
             { props.children }
         </PageContext.Provider>
     )
