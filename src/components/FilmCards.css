@@ -1,0 +1,42 @@
+.films-homepage-card {
+    border: 2px solid rgb(235, 235, 235);
+    border-radius: 15px;
+    padding: 1% 1% 2.5% 2%;
+    margin: 1.5% 2.5%;
+    width: 35%;
+    text-align: left;
+    transition: all 0.3s ease-in-out;
+}
+.films-fav-card {
+    border: 2px solid rgb(235, 235, 235);
+    background-color: rgb(235, 235, 235);
+    border-radius: 15px;
+    padding: 1% 1% 2.5% 2%;
+    margin: 1.5% 2.5%;
+    width: 35%;
+    text-align: left;
+    transition: all 0.3s ease-in-out;
+
+}
+.films-homepage-card h1{
+    margin: 10% 0 0 0;
+}
+
+.favourite {
+    float: right;
+    color:rgb(141, 183, 255);
+    transition: all 0.3s ease-in-out;
+}
+.favourite:hover {
+    color:rgb(76, 92, 213);
+}
+
+.films-homepage-card:hover {
+    box-shadow: 
+    0 6px 12px rgb(0, 0, 0, 0.25);
+}
+
+
+.clickable-link {
+    cursor: default;
+}

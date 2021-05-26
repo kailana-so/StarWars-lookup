@@ -1,0 +1,14 @@
+.film-details {
+    display: flex;
+    justify-content: center;
+}
+
+.film-details-content {
+    border: 2px solid rgb(208, 208, 208);
+    border-radius: 15px;
+    padding: 1% 1% 2.5% 2%;
+    margin: 1.5%;
+    width: 80%;
+    text-align: left;
+    transition: all 0.3s ease-in-out;
+}

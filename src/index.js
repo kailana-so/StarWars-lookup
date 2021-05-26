@@ -3,10 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { PageProvider } from './components/PageContext'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+
+    <PageProvider>
+
+      <App />
+
+    </PageProvider>
+    
   </React.StrictMode>,
   document.getElementById('root')
 );
