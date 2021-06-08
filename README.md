@@ -1,5 +1,6 @@
 # SWAPI lukeup
 
+![web_app](SWAPI.png)
 A simple coding challenge using the Star Wars API:
 - navigation through the characters endpoints
 - persistent storage of favourite films using local storage and page context
