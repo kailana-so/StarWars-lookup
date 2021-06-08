@@ -2,6 +2,7 @@ import './FilmCards.css'
 import { PageContext } from './PageContext'
 import { useContext } from 'react'
 import StarOutlineRoundedIcon from '@material-ui/icons/StarOutlineRounded'
+import { Link } from "react-router-dom";
 
 export default function FilmCards(props){
 
@@ -15,7 +16,13 @@ export default function FilmCards(props){
             <span onClick={() => handleAddFavourite(props)}> 
                 <StarOutlineRoundedIcon />
             </span>
-            <h1 className="clickable-link" onClick={() => handleOpenFilmDetails(props)}> { film.title } {toRoman[film.episode_id]} </h1>
+            <Link to={`/profile/${film.title.split(' ').join('-')}`} exact>
+            <h1 className="clickable-link" 
+                onClick={() => handleOpenFilmDetails(props)}> 
+                { film.title } { toRoman[film.episode_id] } 
+            </h1>
+            </Link>
+
         </section>
     )
 }

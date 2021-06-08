@@ -1,6 +1,9 @@
 import { PageContext } from './PageContext'
 import { useContext } from 'react'
+import { Link } from  "react-router-dom";
 import './FilmDetails.css'
+import KeyboardReturnRoundedIcon from '@material-ui/icons/KeyboardReturnRounded';
+
 var moment = require('moment'); // require
 
 export default function FilmDetails() {
@@ -31,6 +34,10 @@ export default function FilmDetails() {
                         return <li>{character.name}</li>
                     }) : 'loading!'}
                 </ul>
+                <Link to="/">
+                    <KeyboardReturnRoundedIcon/>
+                </Link>
+                
             </div>
         </article>
     )

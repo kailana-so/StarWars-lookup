@@ -66,6 +66,7 @@ export function PageProvider(props) {
     const handleOpenFilmDetails = (props) => {
         setFilmDetails(props.data)
         setCharacters([])   
+        console.log(characters)
 
         props.data.characters.forEach((characterApi => {
             // console.log(characterApi)

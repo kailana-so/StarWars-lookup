@@ -4,15 +4,20 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { PageProvider } from './components/PageContext'
+import { BrowserRouter as Router } from 'react-router-dom'
+
 
 ReactDOM.render(
   <React.StrictMode>
 
-    <PageProvider>
+    <Router>
+      <PageProvider>
+        
+        <App />
 
-      <App />
+      </PageProvider>
+    </Router>
 
-    </PageProvider>
     
   </React.StrictMode>,
   document.getElementById('root')
