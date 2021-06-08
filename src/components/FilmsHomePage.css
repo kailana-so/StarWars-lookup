@@ -6,9 +6,9 @@
 
 a {
     text-decoration: none;
-    color: black;
+    color: rgb(230, 230, 230);
 }
 
 a:hover {
-    color: blue;
+    color: #FFF961;
 }

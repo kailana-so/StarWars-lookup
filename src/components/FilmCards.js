@@ -7,10 +7,7 @@ import { Link } from "react-router-dom";
 export default function FilmCards(props){
 
     const { toRoman, handleOpenFilmDetails, handleAddFavourite } = useContext(PageContext)
-
     const film = props.data
-    console.log(props)
-    console.log(film)
 
     return (
         <section className="films-homepage-card">

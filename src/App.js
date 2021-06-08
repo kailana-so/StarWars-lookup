@@ -25,14 +25,7 @@ function App() {
         </Switch>
       </Router>
     </div>
-    // <div className="App">
-    //   {/* componenets here */}
-    //   <Header />
-    //   <SearchBar />
-    //   <FilmsHomePage />
-    //   <FilmDetails />
-    // </div>
-  );
+  )
 }
 
 export default App;

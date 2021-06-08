@@ -3,31 +3,33 @@
     flex-direction: column;
     justify-content: flex-start;
     width: 38%;
-    margin: 0 10% 0 9.5%;
+    margin: 0 10% 2.5% 9.5%;
 }
 
 .search-bar input {
     border: 2px solid rgb(208, 208, 208);
+    background-color: rgba(35, 35, 35, 0.7);
     border-radius: 5px;
     padding: 1.5%;
-
+    color: rgb(230, 230, 230);
 }
 
 .drop-down {
     margin: 0;
-    background-color: rgb(208, 208, 208);
     list-style-type: none;
     padding: 0;
 }
 
 .drop-down li {
     padding: 1.5%;
+    border-bottom: 2px solid rgba(123, 123, 123, 0.7);;
+    background-color: rgba(35, 35, 35, 0.7);
 }
 
 .drop-down a:nth-child(odd) li {
-    background-color: rgb(245, 245, 245);
+    background-color: rgba(35, 35, 35, 1);
 }
 
 li:hover {
-    color:blue;
+    color:#FFF961;
 }

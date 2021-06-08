@@ -12,7 +12,7 @@ export default function SearchBar() {
         <div className="search-bar">
             <input
                 type="text"
-                placeholder="Search"
+                placeholder="..."
                 value={searchTerm}
                 onChange={handleChange}
             />

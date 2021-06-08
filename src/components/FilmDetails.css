@@ -1,14 +1,27 @@
 .film-details {
     display: flex;
     justify-content: center;
+    color: rgb(201, 201, 201);
 }
 
 .film-details-content {
-    border: 2px solid rgb(208, 208, 208);
+    border: 2px solid #FFF961;
+    background-color: rgba(35, 35, 35, 0.7);
     border-radius: 15px;
     padding: 1% 3%;
     margin: 1.5%;
     width: 75%;
     text-align: left;
     transition: all 0.3s ease-in-out;
+}
+.character-card-container {
+    display: flex;
+    flex-flow: wrap;
+}
+
+.character-card {
+    border-radius: 5px;
+    margin: 1% 1% 1% 0;
+    padding: 1%;
+    background-color: rgba(5, 5, 5, 0.7);
 }

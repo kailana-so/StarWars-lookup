@@ -26,7 +26,7 @@ export function PageProvider(props) {
           arr.toLowerCase().includes(searchTerm.toLowerCase())
         );
         setSearchResults(results)
-    }, [searchTerm, predictedArray])
+    }, [searchTerm])
 
     // roman numeral lookup for episode number 
     const toRoman = {
