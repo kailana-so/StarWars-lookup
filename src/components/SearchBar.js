@@ -1,14 +1,12 @@
 import './SearchBar.css'
 import { useContext } from 'react'
 import { PageContext } from './PageContext'
-// import FilmCards from './FilmCards'
+import { Link } from "react-router-dom";
+
 
 export default function SearchBar() {
 
-    const { films, searchTerm, handleChange, searchResults } = useContext(PageContext)
-
-
-    // do we want to hover and open from the drop down menu or do we want to "live search" (like the drop down menu) with the film cards??
+    const { films, searchTerm, handleChange, searchResults, handleOpenFilmDetails } = useContext(PageContext)
 
     return (
         <div className="search-bar">
@@ -20,7 +18,10 @@ export default function SearchBar() {
             />
             <ul className="drop-down">
                 {searchResults.map(item => ( 
-                    <li onClick="">{item}</li>
+                    
+                    <Link to={`/profile/${item.split(' ').join('-')}`} exact>
+                        <li onClick={() => handleOpenFilmDetails(films.filter(film => film.title === item)[0])}>{item}</li>
+                    </Link>
                 ))}
             </ul>
         </div>

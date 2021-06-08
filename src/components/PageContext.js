@@ -26,7 +26,7 @@ export function PageProvider(props) {
           arr.toLowerCase().includes(searchTerm.toLowerCase())
         );
         setSearchResults(results)
-    }, [searchTerm])
+    }, [searchTerm, predictedArray])
 
     // roman numeral lookup for episode number 
     const toRoman = {
@@ -51,9 +51,6 @@ export function PageProvider(props) {
         const idx = storedFavs !== null ? storedFavs.match(/\d+/g) : []
 
         if(idx !== null) {
-            console.log('go time')
-            // let list = films
-            console.log(films.length)
             for(let i = 0; i < films.length; i++) {
                 if(films[idx[i]]) {
                     setFavourites(prevState => [...prevState, films[idx[i]]])
@@ -64,12 +61,14 @@ export function PageProvider(props) {
 
     // handling open to film details
     const handleOpenFilmDetails = (props) => {
-        setFilmDetails(props.data)
+        setFilmDetails(props)
         setCharacters([])   
-        console.log(characters)
 
-        props.data.characters.forEach((characterApi => {
-            // console.log(characterApi)
+        //handling dropdown menu close on click
+        setSearchResults([])
+        setSearchTerm("")
+
+        props.characters.forEach((characterApi => {
             axios
             .get(`${characterApi}`)
             .then(({ data }) => data)

@@ -24,9 +24,9 @@
     transition: all 0.3s ease-in-out;
 }
 
-.films-homepage-card h1{
+/* .films-homepage-card h1{
     margin: 10% 0 0 0;
-}
+} */
 .clickable-link {
-    cursor: default;
+    cursor: pointer;
 }

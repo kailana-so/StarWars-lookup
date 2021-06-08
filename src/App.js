@@ -16,6 +16,9 @@ function App() {
             <Link to="/">
               <Header />
             </Link>
+        
+        <SearchBar />
+
         <Switch>
           <Route exact path="/" component={FilmsHomePage} />
           <Route path="/profile/:title" component={FilmDetails} />

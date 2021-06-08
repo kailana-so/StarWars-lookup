@@ -9,17 +9,18 @@ export default function FilmCards(props){
     const { toRoman, handleOpenFilmDetails, handleAddFavourite } = useContext(PageContext)
 
     const film = props.data
-
+    console.log(props)
+    console.log(film)
 
     return (
         <section className="films-homepage-card">
-            <span onClick={() => handleAddFavourite(props)}> 
+            <span className="clickable-link" onClick={() => handleAddFavourite(props)}> 
                 <StarOutlineRoundedIcon />
             </span>
             <Link to={`/profile/${film.title.split(' ').join('-')}`} exact>
             <h1 className="clickable-link" 
-                onClick={() => handleOpenFilmDetails(props)}> 
-                { film.title } { toRoman[film.episode_id] } 
+                onClick={() => handleOpenFilmDetails(film)}> 
+                {film.title } { toRoman[film.episode_id] } 
             </h1>
             </Link>
 

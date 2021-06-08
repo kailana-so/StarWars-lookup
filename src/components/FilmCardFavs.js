@@ -12,12 +12,12 @@ export default function FilmCards(props){
 
     return (
         <section className="films-fav-card">
-            <span onClick={() => handleRemoveFavourite(props)}> 
+            <span className="clickable-link" onClick={() => handleRemoveFavourite(props)}> 
                 <StarRoundedIcon /> 
             </span>
             <Link to={`/profile/${film.title.split(' ').join('-')}`} exact>
                 <h1 className="clickable-link" 
-                    onClick={() => handleOpenFilmDetails(props)}> 
+                    onClick={() => handleOpenFilmDetails(film)}> 
                     { film.title } { toRoman[film.episode_id] } 
                 </h1>
             </Link>
