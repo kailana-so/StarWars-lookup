@@ -12,7 +12,7 @@
 
 .films-homepage-card:hover {
     box-shadow: 
-    5px 6px 12px rgb(114, 114, 114);
+    4px 4px 3px #fcffbc, 4px 4px 13px #e8e8e8;
 }
 
 .films-fav-card {
@@ -24,7 +24,7 @@
     width: 35%;
     text-align: left;
     transition: all 0.3s ease-in-out;
-    color: rgb(230, 230, 230);
+    color: #FFF961;
 }
 
 .clickable-link {

@@ -8,6 +8,8 @@ export function PageProvider(props) {
     const [ films, setFilms ] = useState([])
     const [ filmDetails, setFilmDetails ] = useState([])
     const [ characters, setCharacters ] = useState([])
+    const [ starships, setStarships ] = useState([])
+    const [ species, setSpecies ] = useState([])
     const [ favourites, setFavourites ] = useState([])
     const [ searchTerm, setSearchTerm ] = useState("")
     const [ searchResults, setSearchResults ] = useState([])
@@ -77,6 +79,26 @@ export function PageProvider(props) {
                     [...prevState, charactersDetails]
             ))
         }))
+
+        props.starships.forEach((starshipApi => {
+            axios
+            .get(`${starshipApi}`)
+            .then(({ data }) => data)
+            .then(starshipsDetails => 
+                setStarships(prevState => 
+                    [...prevState, starshipsDetails]
+            ))
+        }))
+
+        props.species.forEach((speciesApi => {
+            axios
+            .get(`${speciesApi}`)
+            .then(({ data }) => data)
+            .then(speciesDetails => 
+                setSpecies(prevState => 
+                    [...prevState, speciesDetails]
+            ))
+        }))
     }
 
     // handling favourites
@@ -119,7 +141,7 @@ export function PageProvider(props) {
     }
 
     return (
-        <PageContext.Provider value={ { films, toRoman, favourites, filmDetails, characters, searchTerm, searchResults,  handleOpenFilmDetails, handleAddFavourite, handleRemoveFavourite, handleChange} }>
+        <PageContext.Provider value={ { films, toRoman, favourites, filmDetails, characters, starships, species, searchTerm, searchResults,  handleOpenFilmDetails, handleAddFavourite, handleRemoveFavourite, handleChange} }>
             { props.children }
         </PageContext.Provider>
     )

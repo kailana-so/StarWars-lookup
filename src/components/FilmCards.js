@@ -14,7 +14,7 @@ export default function FilmCards(props){
             <span className="clickable-link" onClick={() => handleAddFavourite(props)}> 
                 <StarOutlineRoundedIcon />
             </span>
-            <Link to={`/profile/${film.title.split(' ').join('-')}`} exact>
+            <Link to={`/film-details/${film.title.split(' ').join('-')}`} exact="true">
             <h1 className="clickable-link" 
                 onClick={() => handleOpenFilmDetails(film)}> 
                 {film.title } { toRoman[film.episode_id] } 

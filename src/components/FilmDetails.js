@@ -12,11 +12,10 @@ var moment = require('moment'); // require
 
 export default function FilmDetails() {
 
-    const { filmDetails, characters} = useContext(PageContext)
+    const { filmDetails, characters, starships, species, toRoman } = useContext(PageContext)
     const dateArray = filmDetails.length !== 0 ? filmDetails.release_date.split('-') : 0
-    console.log(characters)
 
-    const CharacterTooltip = withStyles((theme) => ({
+    const ItemTooltip = withStyles((theme) => ({
         tooltip: {
             backgroundColor: 'white',
             color: 'black',
@@ -35,24 +34,27 @@ export default function FilmDetails() {
         <article className="film-details">
             <div className="film-details-content">
                 <h1>
-                    {filmDetails.title}
+                    {filmDetails.title} {toRoman[filmDetails.episode_id]}
                 </h1>
-                <h4> 
-                    {filmDetails.director} 
-                </h4>
-                <h4> 
-                    {filmDetails.producer} 
-                </h4>
-                <h4>
-                    {moment(dateArray).format("dddd, MMMM Do YYYY")}
-                </h4>
+                <p> 
+                    Director: {filmDetails.director} 
+                </p>
+                <p> 
+                    Producer: {filmDetails.producer} 
+                </p>
+                <p>
+                    Release: {moment(dateArray).format("dddd, MMMM Do YYYY")}
+                </p>
                 <p>
                     {filmDetails.opening_crawl}
                 </p>
+                <h4> 
+                    Characters:
+                </h4>
                 <section className="character-card-container">
                     {characters.length !== 0 ? characters.map(character => {
                         return (
-                            <CharacterTooltip
+                            <ItemTooltip
                             arrow
                             title={
                                 <React.Fragment>
@@ -73,9 +75,71 @@ export default function FilmDetails() {
                             placement="top"
                             >
                                 <div className="character-card">{character.name}</div>
-                            </CharacterTooltip>
+                            </ItemTooltip>
                         )}) 
-                        : 'loading!'}
+                        : 'Loading!'}
+                </section>
+                <h4> 
+                    Species:
+                </h4>
+                <section className="character-card-container">
+                    {species.length !== 0 ? species.map(spec => {
+                        return (
+                            <ItemTooltip
+                            arrow
+                            title={
+                                <React.Fragment>
+                                    <b>Name:</b> {spec.name}
+                                    <br></br>
+                                    <b>Life Span:</b> {spec.average_lifespan}
+                                    <br></br>
+                                    <b>Classification:</b> {spec.classification}
+                                    <br></br>
+                                    <b>Designation:</b> {spec.designation}
+                                    <br></br>
+                                    <b>Language:</b> {spec.language}
+                                </React.Fragment>
+                            }
+                            placement="top"
+                            >
+                                <div className="character-card">{spec.name}</div>
+                            </ItemTooltip>
+                        )}) 
+                        : 'Loading!'}
+                </section>
+                <h4> 
+                    Starships:
+                </h4>
+                <section className="character-card-container">
+                    {starships.length !== 0 ? starships.map(starship => {
+                        return (
+                            <ItemTooltip
+                            arrow
+                            title={
+                                <React.Fragment>
+                                    <b>Model:</b> {starship.model}
+                                    <br></br>
+                                    <b>Passengers:</b> {starship.passengers}
+                                    <br></br>
+                                    <b>Megalight:</b> {starship.MGLT}
+                                    <br></br>
+                                    <b>Cargo Capacity:</b> {starship.cargo_capacity}
+                                    <br></br>
+                                    <b>Crew:</b> {starship.crew}
+                                    <br></br>
+                                    <b>Hyperdrive Rating:</b> {starship.hyperdrive_rating}
+                                    <br></br>
+                                    <b>Manufacturer:</b> {starship.manufacturer}
+                                    <br></br>
+                                    <b>Starship Class:</b> {starship.starship_class}   
+                                </React.Fragment>
+                            }
+                            placement="top"
+                            >
+                                <div className="character-card">{starship.name}</div>
+                            </ItemTooltip>
+                        )}) 
+                        : 'Loading!'}
                 </section>
                 <Link to="/">
                     <KeyboardReturnRoundedIcon/>

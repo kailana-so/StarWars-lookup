@@ -12,14 +12,14 @@ export default function SearchBar() {
         <div className="search-bar">
             <input
                 type="text"
-                placeholder="..."
+                placeholder="Search..."
                 value={searchTerm}
                 onChange={handleChange}
             />
             <ul className="drop-down">
                 {searchResults.map(item => ( 
                     
-                    <Link to={`/profile/${item.split(' ').join('-')}`} exact>
+                    <Link to={`/film-details/${item.split(' ').join('-')}`} exact="true">
                         <li onClick={() => handleOpenFilmDetails(films.filter(film => film.title === item)[0])}>{item}</li>
                     </Link>
                 ))}

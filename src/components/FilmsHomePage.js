@@ -8,7 +8,7 @@ export default function FilmsHomePage() {
 
     const { films, favourites } = useContext(PageContext)
 
-    // WORK OUT THE DELAY HERE OR SCRAP THE FILTER 
+    // WORK OUT THE DELAY HERE OR SCRAP THE FILTER  - bugggy 
     // let notIncFavs = films.filter(film => 
     //     !favourites.find(({ title }) => film.title === title))
     // console.log(notIncFavs)
@@ -17,7 +17,7 @@ export default function FilmsHomePage() {
         <section className="films-homepage">
             {favourites ? 
                 favourites.map((favourite, idx) => 
-                    <FilmCardFavs key={favourite.id} id={idx} data={favourite}/>) 
+                    <FilmCardFavs key={favourite.title} id={idx} data={favourite}/>) 
                 : <h1> loading favs! </h1>
             }
             {films ? 
