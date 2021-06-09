@@ -2,7 +2,7 @@
 
 ![web_app](SWAPI.png)
 
-try it here >> https://starwars_lukeup.surge.sh/film-details/A-New-Hope
+try it here >> https://starwars_lukeup.surge.sh
 
 A simple coding challenge using the Star Wars API:
 - navigation through the characters endpoints
