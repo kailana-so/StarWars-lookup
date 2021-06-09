@@ -1,6 +1,9 @@
 # SWAPI lukeup
 
 ![web_app](SWAPI.png)
+
+try it here >> https://starwars_lukeup.surge.sh/film-details/A-New-Hope
+
 A simple coding challenge using the Star Wars API:
 - navigation through the characters endpoints
 - persistent storage of favourite films using local storage and page context
