@@ -13,7 +13,7 @@ export function PageProvider(props) {
     const [ favourites, setFavourites ] = useState([])
     const [ searchTerm, setSearchTerm ] = useState("")
     const [ searchResults, setSearchResults ] = useState([])
-    
+    console.log(films)
     // handling search terms and dropdown menu
     const predictedArray = []
     const handleChange = event => {
@@ -43,7 +43,7 @@ export function PageProvider(props) {
     // initial pull of movies from API
     useEffect(() => {
         axios
-        .get('http://swapi.dev/api/films/')
+        .get('https://swapi.dev/api/films/')
         .then(({ data }) => setFilms(data.results))
     },[])
 
@@ -71,8 +71,9 @@ export function PageProvider(props) {
         setSearchTerm("")
 
         props.characters.forEach((characterApi => {
+            // console.log('https' + characterApi.split('').slice(4).join(''))
             axios
-            .get(`${characterApi}`)
+            .get('https' + characterApi.split('').slice(4).join(''))
             .then(({ data }) => data)
             .then(charactersDetails => 
                 setCharacters(prevState => 
@@ -82,7 +83,7 @@ export function PageProvider(props) {
 
         props.starships.forEach((starshipApi => {
             axios
-            .get(`${starshipApi}`)
+            .get('https' + starshipApi.split('').slice(4).join(''))
             .then(({ data }) => data)
             .then(starshipsDetails => 
                 setStarships(prevState => 
@@ -92,7 +93,7 @@ export function PageProvider(props) {
 
         props.species.forEach((speciesApi => {
             axios
-            .get(`${speciesApi}`)
+            .get('https' + speciesApi.split('').slice(4).join(''))
             .then(({ data }) => data)
             .then(speciesDetails => 
                 setSpecies(prevState => 
